@@ -1,0 +1,21 @@
+✨ Componentes principales:
+
+Metasploitable2 - Un sistema intencionalmente vulnerable para practicar ataques de red, SSH, FTP y más.
+DVWA (Damn Vulnerable Web Application) - Aplicación web vulnerable ideal para pruebas de seguridad web, como inyecciones SQL y Cross-Site Scripting (XSS).
+Servidor SSH Vulnerable (Ubuntu) - Un contenedor con un servicio SSH expuesto para simular y proteger contra ataques.
+MySQL Vulnerable - Configurado sin SSL para pruebas de bases de datos vulnerables y acceso remoto.
+Red controlada y segmentada con Docker Networks para manejar la interacción segura entre todos los servicios.
+🛠️ Tecnologías utilizadas:
+
+Docker Compose para la gestión y orquestación de los servicios.
+Redes internas seguras con Docker, garantizando la interacción entre contenedores sin exponerse fuera del entorno de pruebas.
+MySQL sin SSL, modificado para evitar problemas con la configuración de certificados, facilitando la conexión y la práctica.
+Servicios SSH, FTP y HTTP vulnerables listos para probar y fortalecer habilidades en seguridad ofensiva.
+🌍 Uso del laboratorio: Este laboratorio me permite ejecutar una serie de pruebas de seguridad en aplicaciones y servicios, simulando escenarios de vulnerabilidades reales, todo dentro de un entorno controlado y sin riesgo para entornos de producción.
+
+👨‍💻 Objetivo: Continuar fortaleciendo mis habilidades en pentesting, seguridad web, y manejo de vulnerabilidades críticas como:
+
+Inyecciones SQL
+Fuerza bruta SSH
+Escalada de privilegios
+XSS

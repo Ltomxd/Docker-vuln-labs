@@ -1,0 +1,53 @@
+version: '3'
+services:
+  metasploitable:
+    image: tleemcjr/metasploitable2
+    networks:
+      - vuln_net
+    ports:
+      - "2222:22"     # SSH Vulnerable en Metasploitable2
+      - "80:80"       # HTTP para práctica de vulnerabilidades web
+      - "3306:3306"   # MySQL vulnerable
+      - "21:21"       # FTP para pruebas adicionales
+    container_name: metasploitable
+    tty: true
+    stdin_open: true
+
+  dvwa:
+    image: vulnerables/web-dvwa
+    networks:
+      - vuln_net
+    ports:
+      - "8080:80"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_DB: dvwa
+    container_name: dvwa
+
+  vulnerable_ssh:
+    image: rastasheep/ubuntu-sshd:18.04
+    networks:
+      - vuln_net
+    ports:
+      - "2223:22"  # Puesto en un puerto diferente
+    environment:
+      ROOT_PASSWORD: vulnerablepassword
+    container_name: ssh_vuln
+
+  mysql:
+    image: mysql:5.7
+    networks:
+      - vuln_net
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: dvwa
+    container_name: mysql
+    command: --skip-ssl  # Deshabilitar SSL en MySQL
+
+networks:
+  vuln_net:
+    driver: bridge
